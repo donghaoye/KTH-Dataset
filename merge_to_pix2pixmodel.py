@@ -58,6 +58,6 @@ if __name__=="__main__":
     fold_AB = dst + '/trainAB'
 
     split2AB(src, dst)
-    #combine_A_and_B(fold_A, fold_B, fold_AB)
+    combine_A_and_B(fold_A, fold_B, fold_AB)
 
 
