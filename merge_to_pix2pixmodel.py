@@ -17,8 +17,8 @@ def file_copy(src, dst):
         error_flag = True
 
 # 将KTH分成A、B两个文件夹
-def split2AB(src='/data/donghaoye/KTH/data/TRAIN', dst='/data/donghaoye/KTH/data/train_A_B'):
-    for fpathe, dirs, fs in os.walk():
+def split2AB(src, dst):
+    for fpathe, dirs, fs in os.walk(src):
         if os.path.exists(dst) == False:
             os.makedirs(dst)
         for f in fs:
