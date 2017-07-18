@@ -40,7 +40,9 @@ def combine_A_and_B(fold_A, fold_B, fold_AB):
     for n in range(len(img_list)):
         name_A = img_list[n]
         path_A = os.path.join(fold_A, name_A)
-        name_B = "ske_" + name_A
+        tmp1 = name_A.split('_')[-2] + "_" + name_A.split('_')[-1]
+        tmp2 = name_A.split(tmp1)[0]
+        name_B = tmp2 + "skeleton_ske_" + tmp1
         path_B = os.path.join(fold_B, name_B)
         if os.path.isfile(path_A) and os.path.isfile(path_B):
             name_AB = name_A
