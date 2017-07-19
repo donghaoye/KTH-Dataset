@@ -17,19 +17,19 @@ def file_copy(src, dst):
         error_flag = True
 
 # 将KTH分成A、B两个文件夹
-def split2AB(src, dst):
-    if os.path.exists(dst + "/trainA/") == False:
-        os.makedirs(dst + "/trainA/")
-    if os.path.exists(dst + "/trainB/") == False:
-        os.makedirs(dst + "/trainB/")
+def split2AB(src, fold_A, fold_B):
+    if os.path.exists(fold_A) == False:
+        os.makedirs(fold_A)
+    if os.path.exists(fold_B) == False:
+        os.makedirs(fold_B)
 
     for fpathe, dirs, fs in os.walk(src):
         for f in fs:
             img_file = os.path.join(fpathe, f)
             if img_file.find("skeleton") == -1:
-                file_copy(img_file, dst + "/trainA/" + img_file.split('/')[-2] + "_" + f)           # 拷贝到trainA目录
+                file_copy(img_file, fold_A + "/" + img_file.split('/')[-2] + "_" + f)           # 拷贝到trainA目录
             else:
-                file_copy(img_file, dst + "/trainB/" + img_file.split('/')[-2] + "_"  + f)          # 拷贝到trainB目录
+                file_copy(img_file, fold_B + "/" + img_file.split('/')[-2] + "_"  + f)          # 拷贝到trainB目录
 
 
 def combine_A_and_B(fold_A, fold_B, fold_AB):
@@ -53,13 +53,29 @@ def combine_A_and_B(fold_A, fold_B, fold_AB):
             cv2.imwrite(path_AB, im_AB)
 
 if __name__=="__main__":
-    src = '/data/donghaoye/KTH/data2/TRAIN'
-    dst = '/data/donghaoye/KTH/data2/train_A_B'
-    fold_A = dst + '/trainA'
-    fold_B = dst + '/trainB'
-    fold_AB = dst + '/trainAB'
+    # train
+    # src = '/data/donghaoye/KTH/data/TRAIN'
+    # dst = '/data/donghaoye/KTH/data3/train_A_B'
+    # fold_A = dst + '/trainA'
+    # fold_B = dst + '/trainB'
+    # fold_AB = dst + '/train'   #trainAB
 
-    split2AB(src, dst)
+    # test
+    src = '/data/donghaoye/KTH/data/TEST'
+    dst = '/data/donghaoye/KTH/data3/test_A_B'
+    fold_A = dst + '/testA'
+    fold_B = dst + '/testB'
+    fold_AB = dst + '/test'   #testAB
+
+    # validation
+    # src = '/data/donghaoye/KTH/data/VALIDATION'
+    # dst = '/data/donghaoye/KTH/data3/validation_A_B'
+    # fold_A = dst + '/validationA'
+    # fold_B = dst + '/validationB'
+    # fold_AB = dst + '/validation'   #validationAB
+
+
+    split2AB(src, fold_A, fold_B)
     combine_A_and_B(fold_A, fold_B, fold_AB)
 
 
