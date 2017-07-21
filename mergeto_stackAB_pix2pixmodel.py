@@ -63,16 +63,18 @@ def get_cur_fold_list(path):
     for line in list:
         filepath = os.path.join(path, line)
         if os.path.isdir(filepath):
-            sub_dir_list.append(filepath)
+            if filepath.find("_skeleton") != -1:
+                sub_dir_list.append(filepath)
     return sub_dir_list
 
 
 if __name__=="__main__":
 
     # train
-    src_1 = 'I:/07191643/0721/ttt/'
-    dst_1 = 'I:/07191643/0721/train'
+    src_1 = '/data/donghaoye/KTH/data/TRAIN'
+    dst_1 = '/data/donghaoye/KTH/data4/train_A_B/train'
     sub_dir_list = get_cur_fold_list(src_1)
+    print sub_dir_list
     for sub_dir in sub_dir_list:
         merge_refimg_skes_by_fold(sub_dir, dst_1)
 
