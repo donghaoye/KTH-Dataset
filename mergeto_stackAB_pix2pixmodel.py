@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import os
+import sys
 import shutil
 import numpy as np
 import cv2
@@ -71,12 +72,14 @@ def get_cur_fold_list(path):
 if __name__=="__main__":
 
     # train
-    src_1 = '/data/donghaoye/KTH/data/TRAIN'
-    dst_1 = '/data/donghaoye/KTH/data4/train_A_B/train'
-    sub_dir_list = get_cur_fold_list(src_1)
-    print sub_dir_list
+    # src = '/data/donghaoye/KTH/data/TRAIN'
+    # dst = '/data/donghaoye/KTH/data4/train_A_B/train'
+    src = sys.argv[0]
+    dst = sys.argv[1]
+
+    sub_dir_list = get_cur_fold_list(src)
     for sub_dir in sub_dir_list:
-        merge_refimg_skes_by_fold(sub_dir, dst_1)
+        merge_refimg_skes_by_fold(sub_dir, dst)
 
 
 
