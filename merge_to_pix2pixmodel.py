@@ -54,28 +54,34 @@ def combine_A_and_B(fold_A, fold_B, fold_AB):
 
 if __name__=="__main__":
     # train
-    # src = '/data/donghaoye/KTH/data/TRAIN'
-    # dst = '/data/donghaoye/KTH/data3/train_A_B'
-    # fold_A = dst + '/trainA'
-    # fold_B = dst + '/trainB'
-    # fold_AB = dst + '/train'   #trainAB
+    src_1 = '/data/donghaoye/KTH/data/TRAIN'
+    dst_1 = '/data/donghaoye/KTH/data2/train_A_B'
+    fold_A_1 = dst_1 + '/trainA'
+    fold_B_1 = dst_1 + '/trainB'
+    fold_AB_1 = dst_1 + '/train'   #trainAB
 
-    # test
-    src = '/data/donghaoye/KTH/data/TEST'
-    dst = '/data/donghaoye/KTH/data3/test_A_B'
-    fold_A = dst + '/testA'
-    fold_B = dst + '/testB'
-    fold_AB = dst + '/test'   #testAB
+    # # test
+    # src_2 = '/data/donghaoye/KTH/data/TEST'
+    # dst_2 = '/data/donghaoye/KTH/data2/test_A_B'
+    # fold_A_2 = dst_2 + '/testA'
+    # fold_B_2 = dst_2 + '/testB'
+    # fold_AB_2 = dst_2 + '/test'   #testAB
+    #
+    # # validation
+    # src_3 = '/data/donghaoye/KTH/data/VALIDATION'
+    # dst_3 = '/data/donghaoye/KTH/data2/validation_A_B'
+    # fold_A_3 = dst_3 + '/validationA'
+    # fold_B_3 = dst_3 + '/validationB'
+    # fold_AB_3 = dst_3 + '/validation'   #validationAB
 
-    # validation
-    # src = '/data/donghaoye/KTH/data/VALIDATION'
-    # dst = '/data/donghaoye/KTH/data3/validation_A_B'
-    # fold_A = dst + '/validationA'
-    # fold_B = dst + '/validationB'
-    # fold_AB = dst + '/validation'   #validationAB
 
+    split2AB(src_1, fold_A_1, fold_B_1)
+    combine_A_and_B(fold_A_1, fold_B_1, fold_AB_1)
 
-    split2AB(src, fold_A, fold_B)
-    combine_A_and_B(fold_A, fold_B, fold_AB)
+    # split2AB(src_2, fold_A_2, fold_B_2)
+    # combine_A_and_B(fold_A_2, fold_B_2, fold_AB_2)
+    #
+    # split2AB(src_3, fold_A_3, fold_B_3)
+    # combine_A_and_B(fold_A_3, fold_B_3, fold_AB_3)
 
 

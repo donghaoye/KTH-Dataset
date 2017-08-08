@@ -22,7 +22,7 @@ for video in video_files:
 
     frame_name = 'frame_%d.jpg'                     # count starts from 1 by default
     args.append(data_path + '/data/videos/'+video)
-    args.append("-s hd720")
+    args.append("-s 720x720")
     args.append(data_path + '/data/frames/'+video_name+'/'+frame_name)
     ffmpeg_call = ' '.join(args)
     print(ffmpeg_call)

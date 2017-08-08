@@ -74,8 +74,9 @@ if __name__=="__main__":
     # train
     # src = '/data/donghaoye/KTH/data/TRAIN'
     # dst = '/data/donghaoye/KTH/data4/train_A_B/train'
-    src = sys.argv[0]
-    dst = sys.argv[1]
+    src = sys.argv[1]
+    dst = sys.argv[2]
+    print (src, dst)
 
     sub_dir_list = get_cur_fold_list(src)
     for sub_dir in sub_dir_list:
