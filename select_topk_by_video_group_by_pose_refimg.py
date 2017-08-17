@@ -96,10 +96,13 @@ if __name__=="__main__":
     # train
     # src = 'I:/KTH/TRAIN'
     # dst = 'I:/KTH/data5/train_A_B/train2'
+
+    # src = /data/donghaoye/KTH/data/TRAIN
+    # dst = /data/donghaoye/KTH/data7/train_ske_ref_img
     # src = /data/donghaoye/KTH/data/VALIDATION
-    # dst = /data/donghaoye/KTH/data5/validation_A_B/validation
+    # dst = /data/donghaoye/KTH/data7/val_ske_ref_img
     # src = /data/donghaoye/KTH/data/TEST
-    # dst = /data/donghaoye/KTH/data5/test_A_B/test
+    # dst = /data/donghaoye/KTH/data7/test_ske_ref_img
     src = sys.argv[1]
     dst = sys.argv[2]
 
